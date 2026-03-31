@@ -2,9 +2,9 @@
 
 ## 📌 Overview
 
-This project implements a **Movie Recommendation System** using **Singular Value Decomposition (SVD)** — a fundamental linear algebra technique widely used in machine learning for dimensionality reduction and matrix factorization.
+This project implements a **Movie Recommendation System** using **Singular Value Decomposition (SVD)** — a core linear algebra technique widely used in machine learning for dimensionality reduction and matrix factorization.
 
-The system learns latent user and item features from a sparse rating matrix and predicts missing values to generate personalized recommendations.
+The system analyzes a sparse user-item rating matrix, learns latent features, and predicts missing values to generate personalized movie recommendations.
 
 ---
 
@@ -18,14 +18,37 @@ The system learns latent user and item features from a sparse rating matrix and 
 
 ---
 
+## 📐 Mathematical Insight
+
+SVD decomposes the user-item matrix into three components:
+
+A = UΣVᵀ
+
+* **U** → User latent feature matrix
+* **Σ** → Diagonal matrix of singular values (importance of features)
+* **Vᵀ** → Item latent feature matrix
+
+This decomposition captures hidden relationships between users and movies, enabling prediction of missing ratings.
+
+---
+
 ## ⚙️ Approach
 
-1. Construct user-item rating matrix from dataset
-2. Normalize data using mean-centering
-3. Apply SVD to decompose matrix
+1. Construct user-item matrix from dataset
+2. Apply mean-centering to normalize ratings
+3. Perform SVD decomposition
 4. Reduce dimensions using top-k singular values
-5. Reconstruct matrix to predict missing ratings
+5. Reconstruct matrix to estimate missing ratings
 6. Recommend top-N unseen movies
+
+---
+
+## 🤔 Why SVD?
+
+* Handles **sparse data** efficiently
+* Captures **latent relationships** between users and items
+* Reduces dimensionality while preserving important patterns
+* Widely used in real-world recommendation systems
 
 ---
 
@@ -33,14 +56,14 @@ The system learns latent user and item features from a sparse rating matrix and 
 
 * MovieLens 100K dataset
 * 100,000 ratings from 943 users on 1682 movies
-* Sparse real-world user-item interaction data
+* Real-world sparse dataset
 
 ---
 
 ## 📈 Evaluation
 
 * Metric: **RMSE (Root Mean Squared Error)**
-* Measures difference between actual and predicted ratings
+* Measures prediction accuracy between actual and predicted ratings
 
 ---
 
@@ -58,13 +81,20 @@ The system learns latent user and item features from a sparse rating matrix and 
 
 ## 🖥️ Sample Output
 
-```
+```text
 Top Recommendations for User 0:
 
 Star Wars (1977) → ⭐ 4.85  
 Toy Story (1995) → ⭐ 4.72  
 ...
 ```
+
+---
+
+## 📸 Screenshot
+
+<img width="1204" height="1398" alt="image" src="https://github.com/user-attachments/assets/6122ef95-1807-4c62-bbc0-736e5da77dc9" />
+
 
 ---
 
@@ -103,7 +133,7 @@ jupyter notebook
 
 ## 🧾 Resume Highlight
 
-Built a recommendation system using **SVD-based matrix factorization** on real-world data, applying linear algebra concepts for dimensionality reduction and prediction of user preferences.
+Built a Movie Recommendation System using **SVD-based matrix factorization** on real-world data, applying linear algebra concepts for dimensionality reduction and prediction of user preferences.
 
 ---
 
@@ -116,7 +146,7 @@ This project demonstrates **practical application of linear algebra in machine l
 ## 🚀 Future Improvements
 
 * Use larger datasets (MovieLens 1M / 20M)
-* Add cosine similarity for better recommendations
+* Add cosine similarity
 * Build interactive UI (Streamlit)
 * Deploy as a web application
 
@@ -134,4 +164,3 @@ This project demonstrates **practical application of linear algebra in machine l
 ---
 
 ⭐ If you found this useful, consider starring the repo!
-
